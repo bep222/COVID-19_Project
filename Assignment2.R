@@ -1,19 +1,23 @@
 Temp <- getwd()
-
 setwd("./covid-19-data/")
-
 USStates <- read.csv("us-states.csv")
-
 setwd(Temp)
+
+view(USStates)
 
 Pennsylvania <- filter(USStates, "state"=="Pennyslvania")
 
-Pennsylvania$adj_deaths <- 0
+view(Pennsylvania)
 
-adj_deaths <- ("adj_deaths"-filter("state","New York""Kansas City, Mo.""Joplin, Mo.""Alaska""Alameda County, Calif.""Douglas County, Neb.""Chicago""Guam""Puerto Rico")
+n <- length(Pennsylvania$date)
 
-If(Pennsylvania$date=="21-04-2020") [Pennsylvania$adj_deaths <- (Pennsylvania$adj_deaths -282)]
+Pennsylvania$incr_cases <- 1
 
-If(Pennsylvania$date=="22-04-2020") [Pennsylvania$adj_deaths <- (Pennsylvania$adj_deaths -297)]
+view(Pennsylvania)
 
-SUM(Pennsylvania$adj_deaths)
+Pennsylvania$incr_deaths <- 2
+
+for(i in 2:n) {
+  Pennsylvania$incr_cases[i] <- (Pennsylvania$cases[i]-Pennsylvania$cases[i-1])
+}
+
