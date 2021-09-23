@@ -21,3 +21,8 @@ for(i in 2:n) {
   Pennsylvania$incr_cases[i] <- (Pennsylvania$cases[i]-Pennsylvania$cases[i-1])
 }
 
+for(i in 2:n) {
+  Pennsylvania$incr_deaths[i] <- (Pennsylvania$deaths[i]-Pennsylvania$deaths[i-1])
+}
+
+view(Pennsylvania)
